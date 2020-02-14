@@ -135,7 +135,6 @@
   </script>
   <script>
         const init = () =>{
-          initAudio()
           const img = document.createElement('img')
           img.src = './myheart.jpg'
           img.style.opacity = 0
@@ -154,6 +153,7 @@
           })
         }
         const play = () =>{
+          initAudio()
           document.querySelector('.core').onclick = () =>{
             if(window.playing || !window.ready) return
             window._audio.play()
