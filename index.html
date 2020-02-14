@@ -126,7 +126,7 @@
 </style>
 <body>
     <div class="heart">
-        <div class="core ready"></div>
+        <div class="core"></div>
     </div>
 <css-doodle use="var(--rule)">
 </css-doodle>
@@ -149,7 +149,7 @@
           window._audio.src = 'https://browniu-wx-1257187612.cos.ap-shanghai.myqcloud.com/GitHub/kn.mp3'
           window._audio.addEventListener("canplay", function(){
             console.log('音乐加载完毕');
-            // document.querySelector('.core').classList.add('ready')
+            document.querySelector('.core').classList.add('ready')
             window.ready = true
           })
         }
