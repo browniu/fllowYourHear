@@ -106,6 +106,22 @@
         background-repeat: no-repeat;
         border-radius: 50%;
     }
+    .core.ready::before{
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: 30%;
+      width: 30%;
+      background-size: contain;
+      background-position: center center;
+      background-image: url('./play.svg');
+      background-size: contain;
+      animation: rotate 3s linear infinite;
+      opacity: .85;
+    }
     
 </style>
 <body>
@@ -130,13 +146,18 @@
         const initAudio = () => {
           window._audio = document.createElement('audio')
           window._audio.src = 'https://browniu-wx-1257187612.cos.ap-shanghai.myqcloud.com/GitHub/kn.mp3'
-          window._audio.autoplay = true
+          window._audio.addEventListener("canplay", function(){
+            console.log('音乐加载完毕');
+            document.querySelector('.core').classList.add('ready')
+          })
         }
         const play = () =>{
+          initAudio()
           document.querySelector('.core').onclick = () =>{
-            if(window._audio) return
-            initAudio()
+            if(window.playing) return
             window._audio.play()
+            window.playing = true
+            document.querySelector('.core').classList.remove('ready')
           }
         }
         const resize = () => {
