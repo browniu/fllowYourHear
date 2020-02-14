@@ -146,7 +146,7 @@
         }
         const initAudio = () => {
           window._audio = document.createElement('audio')
-          window._audio.src = 'https://browniu-wx-1257187612.cos.ap-shanghai.myqcloud.com/GitHub/kn.mp3'
+          window._audio.src = 'http://q5p2lsb02.bkt.clouddn.com/kn.mp3'
           window._audio.addEventListener("canplay", function(){
             console.log('音乐加载完毕');
             document.querySelector('.core').classList.add('ready')
@@ -169,7 +169,7 @@
       }
       const replace = () =>{
         const realCore = document.querySelector('.core')
-        realCore.style.backgroundImage = 'url(https://browniu-wx-1257187612.cos.ap-shanghai.myqcloud.com/GitHub/myheart.jpg)'
+        realCore.style.backgroundImage = 'url(http://q5p2lsb02.bkt.clouddn.com/myheart.jpg)'
       }
       window.onload = ()=>{
         init()
