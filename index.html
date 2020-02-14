@@ -134,9 +134,9 @@
         }
         const play = () =>{
           document.querySelector('.core').onclick = () =>{
+            if(window._audio) return
             initAudio()
             window._audio.play()
-
           }
         }
         const resize = () => {
