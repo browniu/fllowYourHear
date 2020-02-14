@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>心随韵动，意乱琪迷 —2020214</title>
+  <title>心随韵动/意乱琪迷 —2020214</title>
 
 </head>
 <style>
@@ -126,7 +126,7 @@
 </style>
 <body>
     <div class="heart">
-        <div class="core"></div>
+        <div class="core ready"></div>
     </div>
 <css-doodle use="var(--rule)">
 </css-doodle>
@@ -135,6 +135,7 @@
   </script>
   <script>
         const init = () =>{
+          initAudio()
           const img = document.createElement('img')
           img.src = './myheart.jpg'
           img.style.opacity = 0
@@ -148,13 +149,13 @@
           window._audio.src = 'https://browniu-wx-1257187612.cos.ap-shanghai.myqcloud.com/GitHub/kn.mp3'
           window._audio.addEventListener("canplay", function(){
             console.log('音乐加载完毕');
-            document.querySelector('.core').classList.add('ready')
+            // document.querySelector('.core').classList.add('ready')
+            window.ready = true
           })
         }
         const play = () =>{
-          initAudio()
           document.querySelector('.core').onclick = () =>{
-            if(window.playing) return
+            if(window.playing || !window.ready) return
             window._audio.play()
             window.playing = true
             document.querySelector('.core').classList.remove('ready')
