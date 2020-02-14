@@ -119,7 +119,9 @@
   </script>
   <script>
         const resize = () => {
-        const size = document.querySelector('css-doodle').clientHeight
+        const size = document.querySelector
+        if(!size) return
+        ('css-doodle').clientHeight
         const core = document.querySelector('.heart')
         core.style.cssText=`height:${size}px;width:${size}px`
       }
@@ -128,11 +130,13 @@
         realCore.style.backgroundImage = 'url(./me.jpg)'
       }
       window.onload = ()=>{
-        const core = document.querySelector('.heart')
-        core.onclick=()=>{
-          replace()
-        }
-        resize()
+        // const core = document.querySelector('.heart')
+        // core.onclick=()=>{
+        //   replace()
+        // }
+        setTimeout(() => {
+          resize()
+        }, 3000);
       }
       window.onresize = resize
   </script>
